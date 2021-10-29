@@ -27,7 +27,7 @@ public class Instructor {
     @NotBlank @NotNull
     @Column(nullable = false)
     private String lastname;
-//    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private String specialization;
     @Column(length = 1000)

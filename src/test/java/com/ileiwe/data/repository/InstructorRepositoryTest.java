@@ -108,8 +108,12 @@ class InstructorRepositoryTest {
         assertThat ( instructor.getFirstname () ).isEqualTo ( "Ken" );
         assertThat ( instructor.getLastname () ).isEqualTo ( "Beck" );
 
-        Instructor foundInstructor = instructorRepository.findById ( instructor.getId () ).get();
+        Instructor foundInstructor = instructorRepository.findById ( instructor.getId () ).orElse ( null );
 
+        assertThat ( foundInstructor ).isNotNull ();
+        assertThat ( foundInstructor.getBio () ).isNull ();
+        assertThat ( foundInstructor.getGender () ).isNull ();
+        assertThat ( foundInstructor.getSpecialization () ).isNull ();
         foundInstructor.setBio ( "I am a natural born and passionate teacher" );
         foundInstructor.setGender ( FEMALE);
         foundInstructor.setSpecialization ( "Java" );
