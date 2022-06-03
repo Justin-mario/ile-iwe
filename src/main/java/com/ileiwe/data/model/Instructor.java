@@ -1,9 +1,8 @@
 package com.ileiwe.data.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
+import org.springframework.hateoas.RepresentationModel;
 
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Instructor {
+public class Instructor extends RepresentationModel<Instructor> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +31,12 @@ public class Instructor {
     private String specialization;
     @Column(length = 1000)
     private String bio;
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private LearningParty learningParty;
 
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    private LearningParty learningParty;
+    @ToString.Exclude
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Course> courses;
 

@@ -129,40 +129,4 @@ class InstructorRepositoryTest {
 
     }
 
-//    @Test
-//    @Transactional
-//    @Rollback(value = false)
-//    void updateInstructorAsLearningPartyTest(){
-//        LearningParty user = new LearningParty ("trainer@mail.com",
-//                "trainer123",
-//                new Authority ( Role.ROLE_INSTRUCTOR) );
-//
-//        Instructor instructor = Instructor.builder ()
-//                .firstname ( "John" )
-//                .lastname ( "Alao" )
-//                .learningParty ( user )
-//                .build ();
-//        log.info ( "Instructor before saving --> {}", instructor );
-//        instructorRepository.save ( instructor );
-//        assertThat(instructor.getId ()).isNotNull ();
-//        assertThat ( instructor.getLearningParty ().getId () ).isNotNull ();
-//        assertThat ( instructor.getFirstname () ).isEqualTo ( "John" );
-//        assertThat ( instructor.getLastname () ).isEqualTo ( "Alao" );
-//        log.info ( "Instructor after saving --> {}", instructor );
-//        instructor.setGender ( MALE );
-//        instructor.setSpecialization ( "Database" );
-//        instructor.setBio ( "Passionate about impacting knowledge" );
-//        Course course = new Course ();
-//        course.setInstructor ( instructor );
-//        course.setDateCreated ( LocalDateTime.now () );
-//        course.setTitle ( "Programming With Python" );
-//        assertThat ( instructor.getCourses ().get ( 0 ) ).isEqualTo ( course );
-//        assertThat ( instructor.getLearningParty ().getId () ).isNotNull ();
-//        assertThat ( instructor.getFirstname () ).isEqualTo ( "John" );
-//        assertThat ( instructor.getLastname () ).isEqualTo ( "Alao" );
-//        assertThat (  instructor.getGender ()).isEqualTo ( MALE );
-//        assertThat ( instructor.getBio () ).isEqualTo (  "Passionate about impacting knowledge");
-//        assertThat ( instructor.getSpecialization () ).isEqualTo ( "Database" );
-//    }
-
 }
